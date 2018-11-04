@@ -5,7 +5,7 @@
 using namespace cv;
 
 int main(int argc, char** argv) {
-    /*if (argc != 2) {
+    if (argc != 2) {
         printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
@@ -16,8 +16,32 @@ int main(int argc, char** argv) {
         printf("No image data \n");
         return -1;
     }
+    Mat fullImageHSV;
+    cvtColor(image, fullImageHSV, CV_BGR2HSV);
+    /*int iLowH = 30;
+    int iLowS = 255;
+    int iLowV = 135;
+    int iHighH = 40;
+    int iHighS = 255;
+    int iHighV = 185;*/
+    Mat imgThresholded;
+    inRange(fullImageHSV, Scalar(29, 86, 6), Scalar(64, 255, 255), imgThresholded);
+    erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5,5)));
+    dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5,5)));
+    dilate(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5,5)));
+    erode(imgThresholded, imgThresholded, getStructuringElement(MORPH_ELLIPSE, Size(5,5)));
+    Moments myMoments = moments(imgThresholded, true);
+    int x = myMoments.m10/myMoments.m00;
+    int y = myMoments.m01/myMoments.m00;
+    int radius = pow(myMoments.m00/3.14159, 0.5);
+    rectangle(image, Point(x-radius, y-radius), Point(x+radius, y+radius), Scalar(255, 0, 0));
+    Point centroids = Point(myMoments.m10/myMoments.m00, myMoments.m01/myMoments.m00);
     namedWindow("Display Image", WINDOW_AUTOSIZE);
     imshow("Display Image", image);
-    waitKey(0);*/
+    waitKey(0);
+    std::cout << x << "\n";
+    std::cout << y << "\n";
+    std::cout << radius << "\n";
+    std::cout << myMoments.m00 << "\n";
     return 0;
 }
