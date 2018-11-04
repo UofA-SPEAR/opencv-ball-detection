@@ -1,0 +1,3 @@
+/home/nayanprakash/Documents/opencv-ball-detection/CMakeFiles/rebuild_cache.dir
+/home/nayanprakash/Documents/opencv-ball-detection/CMakeFiles/edit_cache.dir
+/home/nayanprakash/Documents/opencv-ball-detection/CMakeFiles/main.dir
