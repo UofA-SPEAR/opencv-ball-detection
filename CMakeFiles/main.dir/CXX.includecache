@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/nayanprakash/Documents/opencv-ball-detection/main.cpp
+/home/ros/OpenCVTennis/opencv-ball-detection/main.cpp
 stdio.h
 -
 opencv2/opencv.hpp
