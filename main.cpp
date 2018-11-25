@@ -8,7 +8,7 @@
 using namespace cv;
 
 int main(int argc, char** argv) {
-    if (argc != 2) {
+    /*if (argc != 2) {
         printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
@@ -18,7 +18,16 @@ int main(int argc, char** argv) {
     if (!image.data){
         printf("No image data \n");
         return -1;
-    }
+    }*/
+
+    VideoCapture cap(1); // open the default camera
+    if(!cap.isOpened())  // check if we succeeded
+        return -1;
+
+    Mat image;
+
+while(1) {
+    cap >> image;
     Mat fullImageHSV;
     cvtColor(image, fullImageHSV, CV_BGR2HSV);
     /*int iLowH = 30;
@@ -49,12 +58,14 @@ int main(int argc, char** argv) {
     int radius = pow(myMoments.m00/3.14159, 0.5);
     rectangle(image, Point(x-radius, y-radius), Point(x+radius, y+radius), Scalar(255, 0, 0));
     Point centroids = Point(myMoments.m10/myMoments.m00, myMoments.m01/myMoments.m00);*/
-    //namedWindow("Display Image", WINDOW_AUTOSIZE);
-    //imshow("Display Image", image);
-    waitKey(0);
+    namedWindow("Display Image", WINDOW_AUTOSIZE);
+    imshow("Display Image", image);
+    if(waitKey(30)>= 0) break;
+    //waitKey(0);
     /*std::cout << x << "\n";
     std::cout << y << "\n";
     std::cout << radius << "\n";
     std::cout << myMoments.m00 << "\n";*/
+	}
     return 0;
 }

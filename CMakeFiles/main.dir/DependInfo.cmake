@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros/OpenCVTennis/opencv-ball-detection/main.cpp" "/home/ros/OpenCVTennis/opencv-ball-detection/CMakeFiles/main.dir/main.cpp.o"
+  "/home/nvidia/Desktop/cv-object-detect/opencv-ball-detection/main.cpp" "/home/nvidia/Desktop/cv-object-detect/opencv-ball-detection/CMakeFiles/main.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
