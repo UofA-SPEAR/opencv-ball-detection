@@ -3,6 +3,11 @@ This will be used to detect tennis balls from a video feed.
 
 Note: you will need to have opencv and cmake installed.
 
+```bash
+sudo apt-get install libopencv-dev
+sudo apt-get install cmake
+```
+
 ## Build Instructions
 
 1. Clone this repo
